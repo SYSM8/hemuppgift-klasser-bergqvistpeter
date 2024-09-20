@@ -22,18 +22,26 @@ namespace BankAccount
         }
         //Lägg till Metoder
 
-        public double Deposit(double addBalance) 
+        public double Deposit(double addBalance) //Metod för att sätta in pengar
         {
-        return Balance + addBalance;
+            double newBalance = addBalance + Balance;
+            Balance = newBalance;
+            Console.WriteLine($"Du har satt in {addBalance} och ditt nya Saldo är {Balance}. ");
+            return Balance ;
         }
 
-        public double Withdraw(double withdrawBalance) 
+        public double Withdraw(double withdrawBalance) // metod för att ta ut pengar och kolla om där är tillräckligt
         {
 
 
-            if (Balance - withdrawBalance >= 0)
+            if (Balance - withdrawBalance >= 0) 
             {
-                return Balance - withdrawBalance;
+                
+                double newBalance = Balance - withdrawBalance;
+                Balance = newBalance;
+                Console.WriteLine($"Du har tagit ut {withdrawBalance} och ditt nya Saldo är {Balance}. ");
+                return Balance;
+            
             }
             else
             {
@@ -42,7 +50,7 @@ namespace BankAccount
             return Balance;
         }
 
-        public void DisplayBalance() 
+        public void DisplayBalance() // metod för att visa balans.
         
         { 
             Console.WriteLine($"Ditt saldo är: {Balance}");
